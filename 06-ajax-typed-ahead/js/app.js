@@ -19,8 +19,17 @@ fetch(URL)
 function findMatches(wordToMatch, cities) {
   return cities.filter((place) => {
     const regex = new RegExp(wordToMatch, 'gi');
-    return place.city.match(regex) || place.state.match(regex);
+    return (
+      place.city.match(regex) ||
+      place.state.match(regex) ||
+      place.population.match(regex)
+    );
   });
+}
+
+// Number With Commas Function
+function numberWithCommas(num) {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
 }
 
 // Display Matched Function
@@ -29,18 +38,24 @@ function displayMatches() {
   const html = matchedArr
     .map((place) => {
       const regex = new RegExp(this.value.trim(), 'gi');
+
       const cityName = place.city.replace(
         regex,
-        `<span class="hl">${this.value}</span>`
+        `<span class="hl">${this.value.trim()}</span>`
       );
       const stateName = place.state.replace(
         regex,
-        `<span class="hl">${this.value}</span>`
+        `<span class="hl">${this.value.trim()}</span>`
       );
+      const population = place.population.replace(
+        regex,
+        `<span class="hl">${this.value.trim()}</span>`
+      );
+
       return `
     <li>
         <span class="name">${cityName}, ${stateName}</span>
-        <span class="population">${place.population}</span>
+        <span class="population">${numberWithCommas(population)}</span>
     </li>
     `;
     })
