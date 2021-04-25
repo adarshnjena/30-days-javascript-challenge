@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Title and Favicon -->
+    <title>White Board</title>
+    <link
+      rel="shortcut icon"
+      href="https://2ality.com/2011/10/logo-js/js.jpg"
+      type="image/x-icon"
+    />
+    <style>
+      canvas {
+        border: 20px solid white;
+        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef,
+          inset 0 0 1px black, 0 0 10px rgba(0, 0, 0, 0.2);
+        cursor: url('img/pen.png'), auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Text -->
+    <h2>Your White Board Here 💁</h2>
+    <!-- Canvas -->
+    <canvas id="draw"></canvas>
+
+    <!-- JS file -->
+    <script src="js/app.js"></script>
+  </body>
+</html>
