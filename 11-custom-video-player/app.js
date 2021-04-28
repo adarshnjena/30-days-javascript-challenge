@@ -57,7 +57,13 @@ ranges.forEach((range) => range.addEventListener('mousemove', handleRange));
 
 skips.forEach((skip) => skip.addEventListener('click', handleSkip));
 
+// Check Mousedown
+let mousedown = false;
+
 progress.addEventListener('click', scrub);
+progress.addEventListener('mousemmove', (e) => mousedown && scrub(e));
+progress.addEventListener('mousedown', () => (mousedown = true));
+progress.addEventListener('mouseup', () => (mousedown = false));
 
 // Default Current Time
 video.currentTime = 1;
