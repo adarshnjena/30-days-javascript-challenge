@@ -1,0 +1,34 @@
+html {
+  color: black;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+h1 {
+  text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.363);
+  font-size: 100px;
+  font-weight: 800;
+  color: rgb(255, 255, 255);
+  transform: rotate(-15deg);
+  background-color: red;
+  padding: 0 20px;
+}
+@media (max-width: 767px) {
+  body {
+    padding: 0 30px;
+  }
+  h1 {
+    font-size: 50px;
+  }
+}
